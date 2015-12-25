@@ -1,10 +1,8 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using DropzoneJs.Models;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -13,18 +11,19 @@ namespace DropzoneJs.Controllers
 {
     public class HomeController : Controller
     {
-        public CloudBlobClient Client;
+        public CloudBlobClient BlobClient;
 
         public HomeController()
         {
-            CreateBlobContainer();
+            var storageKey = ConfigurationManager.AppSettings["storageaccountkey"];
+            BlobClient = CreateBlobContainer(storageKey);
         }
 
-        private void CreateBlobContainer()
+        private static CloudBlobClient CreateBlobContainer(string storageKey)
         {
-            var creds = new StorageCredentials("graphdetective", "+O6wDOg4Gt+pYGKjxPzhUMvdrp0Wl0IMXx+eQRrCEg5VjbqKq8yNUaPyg1KhqGdOKrHGdbDsub/IxPodTxHXNg==");
+            var creds = new StorageCredentials("graphdetective", storageKey);
             var account = new CloudStorageAccount(creds, useHttps: true);
-            Client = account.CreateCloudBlobClient();
+            return account.CreateCloudBlobClient();
         }
         public ActionResult Index()
         {
@@ -36,9 +35,9 @@ namespace DropzoneJs.Controllers
             var imgResultModel = new ImagesResultModel();
             ViewBag.Message = "De reeds opgeladen afbeeldingen vanuit Azure Blob storage";
             
-            var sampleContainer = Client.GetContainerReference("images");
+            var sampleContainer = BlobClient.GetContainerReference("images");
             sampleContainer.CreateIfNotExists();
-            var blobs = sampleContainer.ListBlobs().OrderBy(o => o.Uri);
+            var blobs = sampleContainer.ListBlobs();
 
             foreach (var blobItem in blobs)
             {
@@ -64,24 +63,26 @@ namespace DropzoneJs.Controllers
         /// </summary>
         public ActionResult SaveDropzoneJsUploadedFiles()
         {
+            var message = "Opladen gelukt!";
             try
             {
-               var sampleContainer = Client.GetContainerReference("images");
+               var sampleContainer = BlobClient.GetContainerReference("images");
                 sampleContainer.CreateIfNotExists();
 
                 foreach (string fileName in Request.Files)
                 {
                     var file = Request.Files[fileName];
+                    if (file == null) continue;
                     var blob = sampleContainer.GetBlockBlobReference(file.FileName);
-                    blob.UploadFromStream(file.InputStream);                   
+                    blob.UploadFromStream(file.InputStream);
                 }
             }
             catch (Exception ex)
             {
-                var ssfsdf = ex;
+                message = ex.ToString();
 
             }
-            return Json(new { Message = "Opladen gelukt!" });
+            return Json(new { Message = message });
         }
     }
 }
