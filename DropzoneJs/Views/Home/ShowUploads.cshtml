@@ -1,0 +1,12 @@
+﻿@model DropzoneJs.Models.ImagesResultModel
+@{
+    ViewBag.Title = "ShowUploads";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@foreach (var image in Model.Images)
+{
+    <p><img src="@image" height="100"/></p>
+}
+ 
