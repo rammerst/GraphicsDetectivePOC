@@ -280,3 +280,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 DropzoneJs\AppSecrets.config
+DropzoneJs/AppSecrets.config
