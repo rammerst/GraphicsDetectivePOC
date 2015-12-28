@@ -379,7 +379,7 @@ module.exports = require("./lib/dropzone.js");
 require.register("dropzone/lib/dropzone.js", function(exports, require, module){
 /*
 #
-# More info at [www.dropzonejs.com](http://www.dropzonejs.com)
+# More info at [www.GraphicsDetective.com](http://www.GraphicsDetective.com)
 # 
 # Copyright (c) 2012, Matias Meno  
 # 
