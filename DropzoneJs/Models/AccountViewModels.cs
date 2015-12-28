@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DropzoneJs.Models
+namespace GraphicsDetective.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

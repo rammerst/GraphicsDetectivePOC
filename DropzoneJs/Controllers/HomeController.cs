@@ -4,10 +4,10 @@ using System;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
-using DropzoneJs.Models;
+using GraphicsDetective.Models;
 using Microsoft.WindowsAzure.Storage.Blob;
 
-namespace DropzoneJs.Controllers
+namespace GraphicsDetective.Controllers
 {
     public class HomeController : Controller
     {

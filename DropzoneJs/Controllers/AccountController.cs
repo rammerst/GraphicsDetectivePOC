@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using DropzoneJs.Models;
+using GraphicsDetective.Models;
 
-namespace DropzoneJs.Controllers
+namespace GraphicsDetective.Controllers
 {
     [Authorize]
     public class AccountController : Controller
