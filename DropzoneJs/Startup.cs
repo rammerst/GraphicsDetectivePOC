@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(DropzoneJs.Startup))]
-namespace DropzoneJs
+[assembly: OwinStartupAttribute(typeof(GraphicsDetective.Startup))]
+namespace GraphicsDetective
 {
     public partial class Startup
     {
