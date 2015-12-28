@@ -15,13 +15,12 @@ namespace DropzoneJs.Controllers
 
         public HomeController()
         {
-            var storageKey = ConfigurationManager.AppSettings["storageaccountkey"];
-            BlobClient = CreateBlobContainer(storageKey);
+            BlobClient = CreateBlobContainer(ConfigurationManager.AppSettings["storageaccountName"], ConfigurationManager.AppSettings["storageaccountKey"]);
         }
 
-        private static CloudBlobClient CreateBlobContainer(string storageKey)
+        private static CloudBlobClient CreateBlobContainer(string accountName,string keyValue)
         {
-            var creds = new StorageCredentials("graphdetective", storageKey);
+            var creds = new StorageCredentials(accountName, keyValue);
             var account = new CloudStorageAccount(creds, useHttps: true);
             return account.CreateCloudBlobClient();
         }
