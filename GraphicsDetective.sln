@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicsDetective", "DropzoneJs\GraphicsDetective.csproj", "{CBEE9AF6-49A9-4472-BF87-2E99FE3CDD8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessUploads", "ProcessUploads\ProcessUploads.csproj", "{D5F0F813-00B5-47F5-9D35-6D0F8230DC94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicsDetectiveCommon", "GraphicsDetectiveCommon\GraphicsDetectiveCommon.csproj", "{FFB2B27D-9E3C-428B-A419-B6645E1D2CB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CBEE9AF6-49A9-4472-BF87-2E99FE3CDD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBEE9AF6-49A9-4472-BF87-2E99FE3CDD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBEE9AF6-49A9-4472-BF87-2E99FE3CDD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F0F813-00B5-47F5-9D35-6D0F8230DC94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F0F813-00B5-47F5-9D35-6D0F8230DC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F0F813-00B5-47F5-9D35-6D0F8230DC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F0F813-00B5-47F5-9D35-6D0F8230DC94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB2B27D-9E3C-428B-A419-B6645E1D2CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB2B27D-9E3C-428B-A419-B6645E1D2CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB2B27D-9E3C-428B-A419-B6645E1D2CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB2B27D-9E3C-428B-A419-B6645E1D2CB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
