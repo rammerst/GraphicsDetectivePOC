@@ -1,12 +1,22 @@
 ﻿@model GraphicsDetective.Models.ImagesResultModel
 @{
-    ViewBag.Title = "ShowUploads";
+    ViewBag.Title = "Toon uploads";
 }
-<h2>@ViewBag.Title.</h2>
+
 <h3>@ViewBag.Message</h3>
 
 @foreach (var image in Model.Images)
 {
-    <p><img src="@image" height="100"/></p>
+    if (image.IsThumb)
+    {
+        <b>This is a thumbnail:</b>
+        <p><img src="@image.ImageUri" height="100"/>
+        </p>
+    }
+    else
+    {
+        <p><img src="@image.ImageUri" height="200" /></p>
+    }
+
 }
  

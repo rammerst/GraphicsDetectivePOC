@@ -55,7 +55,7 @@ namespace GraphicsDetective.Controllers
 
             foreach (var blobItem in blobs)
             {
-                imgResultModel.Images.Add(blobItem.Uri.ToString());
+                imgResultModel.Images.Add(new ImageFromBlob(blobItem.Uri));
                 //using (Stream outputFile = new FileStream("Downloaded.jpg", FileMode.Create))
                 //{
                 //    blob.DownloadToStream(outputFile);

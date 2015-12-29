@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.Azure.WebJobs;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Drawing;
@@ -17,12 +18,15 @@ namespace ProcessUploads
         [Blob("images/{BlobName}", FileAccess.Read)] Stream input,
         [Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob, TextWriter log)
         {
+            Console.WriteLine("Job triggered!");
+            Console.WriteLine("Create thumbnail from uri: {0}", blobInfo.BlobUri);
             log.WriteLine(blobInfo.BlobName);
             using (Stream output = outputBlob.OpenWrite())
             {
                 ConvertImageToThumbnailJpg(input, output);
                 outputBlob.Properties.ContentType = "image/jpeg";
             }
+            Console.WriteLine("Finished succesfully!");
         }
 
         public static void ConvertImageToThumbnailJpg(Stream input, Stream output)
