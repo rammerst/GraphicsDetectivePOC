@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using GraphicsDetective.Models;
 using GraphicsDetectiveCommon;
@@ -87,7 +88,7 @@ namespace GraphicsDetective.Controllers
                 {
                     var file = Request.Files[fileName];
                     if (file == null) continue;
-                    var blob = sampleContainer.GetBlockBlobReference(file.FileName);
+                    var blob = sampleContainer.GetBlockBlobReference(HttpUtility.UrlEncode(file.FileName));
                     blob.UploadFromStream(file.InputStream);
 
                     var blobInfo = new BlobInformation() { BlobReferenceId = 0, BlobUri = new Uri(blob.Uri.ToString()) };
